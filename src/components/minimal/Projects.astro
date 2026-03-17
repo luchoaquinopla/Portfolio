@@ -1,0 +1,176 @@
+---
+import { getCollection } from 'astro:content';
+import ProjectCard from './projects/ProjectCard.astro';
+import ScreenshotsModal from './projects/ScreenshotsModal.astro';
+import Lightbox from './projects/Lightbox.astro';
+
+// Obtener proyectos y ordenarlos alfabéticamente por 'id' que en las colecciones es .id 
+// (Aunque .id es el nombre del archivo, para mantener el orden de 01, 02, 03 podemos mapearlos temporalmente)
+const allProjects = await getCollection('projects');
+
+// Orden custom porque los id son 'lossa-basquet', 'sistema-stock', 'signo-kids'
+const orderedIds = ['lossa-basquet', 'sistema-stock', 'signo-kids'];
+const projects = allProjects.sort((a, b) => orderedIds.indexOf(a.id) - orderedIds.indexOf(b.id));
+
+// Extraer info para los modales
+const stockProject = projects.find(p => p.id === 'sistema-stock');
+const signoProject = projects.find(p => p.id === 'signo-kids');
+---
+
+<style is:global>
+  .project-rule {
+    transform-origin: left;
+    transform: scaleX(0);
+    transition: transform 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .project-entry.visible .project-rule {
+    transform: scaleX(1);
+  }
+  .project-number {
+    font-variant-numeric: tabular-nums;
+    line-height: 1;
+    transition: opacity 0.6s ease;
+  }
+  .project-content {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 0.7s ease, transform 0.7s ease;
+  }
+  .project-entry.visible .project-content {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .project-entry:hover .project-number {
+    opacity: 0.1;
+  }
+  .modal-backdrop {
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+  }
+</style>
+
+<section id="projects" class="snap-section bg-[#0A0A0A] flex items-start md:items-center py-20 md:py-0">
+  <div class="flex flex-col w-full px-6 md:px-0">
+
+    <!-- Encabezado de sección -->
+    <div class="md:grid md:grid-cols-12 md:gap-8 mb-12 md:mb-16">
+      <div class="md:col-start-2 md:col-end-5">
+        <span class="text-[10px] font-mono text-neutral-600 uppercase tracking-[0.5em]">03 // Obra</span>
+        <h2 class="text-3xl md:text-5xl font-light text-white tracking-tighter mt-4 ml-[-2px]">
+          Proyectos<span class="text-neutral-600">.</span>
+        </h2>
+      </div>
+      <div class="md:col-start-5 md:col-end-11 md:pt-10 mt-6 md:mt-0">
+        <p class="text-neutral-400 text-sm md:text-base leading-relaxed">
+          Selección de trabajos recientes que abarcan desde el diseño y desarrollo de aplicaciones web hasta soluciones móviles. Enfoque en código limpio, escalabilidad y una experiencia de usuario cuidadosa.
+        </p>
+      </div>
+    </div>
+
+    <!-- Lista de Proyectos -->
+    <div class="divide-y divide-white/10 md:divide-y-0">
+      {projects.map((project, index) => (
+        <ProjectCard project={project} index={index} />
+      ))}
+    </div>
+
+  </div>
+</section>
+
+<!-- Modales -->
+{stockProject && stockProject.data.screenshots && stockProject.data.screenshots.length > 0 && (
+  <ScreenshotsModal
+    id="sistema-stock"
+    title={stockProject.data.name}
+    subtitle="Sistema privado — Capturas"
+    accent="amber"
+    images={[
+      { file: stockProject.data.screenshots[0], label: 'Dashboard' },
+      { file: stockProject.data.screenshots[1], label: 'Productos' },
+      { file: stockProject.data.screenshots[2], label: 'Agregar producto' },
+      { file: stockProject.data.screenshots[3], label: 'Movimientos' },
+      { file: stockProject.data.screenshots[4], label: 'Tipo de movimiento' },
+      { file: stockProject.data.screenshots[5], label: 'Reportes' },
+      { file: stockProject.data.screenshots[6], label: 'Configuración' },
+      { file: stockProject.data.screenshots[7], label: 'Login' }
+    ]}
+    description="Sistema en producción para uso interno del cliente. El acceso requiere credenciales. Las capturas muestran las vistas principales implementadas."
+  />
+)}
+
+{signoProject && signoProject.data.screenshots && signoProject.data.screenshots.length > 0 && (
+  <ScreenshotsModal
+    id="signo-kids"
+    title={signoProject.data.name}
+    subtitle="App Mobile — Capturas"
+    accent="blue"
+    images={[
+      { file: signoProject.data.screenshots[0], label: 'Selección de perfil' },
+      { file: signoProject.data.screenshots[1], label: 'Carga de App' },
+      { file: signoProject.data.screenshots[2], label: 'Login Médico' },
+      { file: signoProject.data.screenshots[3], label: 'Menu interactivo' },
+      { file: signoProject.data.screenshots[4], label: 'Vista de contenido' },
+      { file: signoProject.data.screenshots[5], label: 'Registro Médico' },
+      { file: signoProject.data.screenshots[6], label: 'Progreso de niño' }
+    ]}
+    description="Aplicación mobile educativa desarrollada para un entorno académico. Las capturas ilustran el flujo del niño aprendiendo y la panel del profesional."
+  />
+)}
+
+<Lightbox />
+
+<script>
+  // Animación de entrada con IntersectionObserver
+  const projectEntries = document.querySelectorAll('.project-entry');
+  
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('visible');
+        observer.unobserve(entry.target);
+      }
+    });
+  }, {
+    threshold: 0.1,
+    rootMargin: '0px 0px -50px 0px'
+  });
+
+  projectEntries.forEach(entry => observer.observe(entry));
+
+  // --- Lógica de Apertura / Cierre de modales ---
+  function openModalById(id: string) {
+    const m = document.getElementById(id);
+    m?.classList.remove('opacity-0', 'pointer-events-none');
+    m?.classList.add('opacity-100');
+    document.body.style.overflow = 'hidden';
+  }
+  function closeModalById(id: string) {
+    const m = document.getElementById(id);
+    m?.classList.add('opacity-0', 'pointer-events-none');
+    m?.classList.remove('opacity-100');
+    document.body.style.overflow = '';
+  }
+
+  // Botones que abren modal
+  document.querySelectorAll('.screenshots-btn').forEach((btn) => {
+    btn.addEventListener('click', () => {
+      const target = (btn as HTMLElement).dataset.modal;
+      if (target) {
+        openModalById(`${target}-modal`);
+      }
+    });
+  });
+
+  ['sistema-stock', 'signo-kids'].forEach(id => {
+    document.getElementById(`${id}-modal-backdrop`)?.addEventListener('click', () => closeModalById(`${id}-modal`));
+    document.getElementById(`${id}-modal-close`)?.addEventListener('click', () => closeModalById(`${id}-modal`));
+  });
+
+  // ESC cierra
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape') {
+      closeModalById('sistema-stock-modal');
+      closeModalById('signo-kids-modal');
+    }
+  });
+</script>

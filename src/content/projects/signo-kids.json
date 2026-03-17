@@ -1,0 +1,20 @@
+{
+  "name": "Signo Kids",
+  "subtitle": "App Móvil — Proyecto Académico · 2024",
+  "type": "academic",
+  "year": "2024",
+  "description": "Aplicación mobile para que niños aprendan lengua de señas de forma interactiva, con módulos de juegos y seguimiento del progreso por parte del profesional fonoaudiólogo. Desarrollé principalmente el frontend. No publicada en stores por tratarse de un proyecto universitario.",
+  "stack": ["React Native", "Expo", "TypeScript"],
+  "screenshots": [
+    "/screenshots/signo-kids/01-splash.jpeg",
+    "/screenshots/signo-kids/02-login.jpeg",
+    "/screenshots/signo-kids/03-registro.jpeg",
+    "/screenshots/signo-kids/04-perfiles.jpeg",
+    "/screenshots/signo-kids/05-menu.jpeg",
+    "/screenshots/signo-kids/06-extra.jpeg",
+    "/screenshots/signo-kids/07-extra2.jpeg"
+  ],
+  "links": {
+    "repo": "https://github.com/luchoaquinopla/tpi-fonoaudiologia-2"
+  }
+}

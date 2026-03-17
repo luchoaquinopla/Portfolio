@@ -1,0 +1,13 @@
+{
+  "name": "L'ossa Basquet",
+  "subtitle": "Landing Page — Equipo de básquet, Andorra",
+  "type": "live",
+  "year": "2024",
+  "description": "Landing page institucional para el equipo de básquet L'ossa de Andorra. Diseño orientado a la identidad del club, con navegación fluida y presentación del equipo.",
+  "stack": ["React", "Vite", "TypeScript"],
+  "screenshots": [],
+  "links": {
+    "live": "https://www.lossabasquet.com/",
+    "repo": "https://github.com/luchoaquinopla/Proyecto-L-ossa-Basquet"
+  }
+}
