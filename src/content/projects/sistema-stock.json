@@ -1,0 +1,23 @@
+{
+  "name": "Sistema de Stock",
+  "subtitle": "Aplicación Web — Acceso con credenciales · 2024",
+  "type": "live",
+  "year": "2024",
+  "description": "Sistema fullstack para gestión de inventario de un emprendimiento. Permite registrar productos, categorías y proveedores; registrar ventas y reposiciones de stock; visualizar estadísticas de ventas por producto; y recibir alertas de reposición. Desarrollado en dupla: diseño de BD, backend y frontend.",
+  "stack": ["React", "Next.js", "NestJS", "PostgreSQL", "Tailwind", "TypeScript"],
+  "screenshots": [
+    "/screenshots/SistemaStock/stock-08.jpeg",
+    "/screenshots/SistemaStock/stock-01.jpeg",
+    "/screenshots/SistemaStock/stock-02.jpeg",
+    "/screenshots/SistemaStock/stock-03.jpeg",
+    "/screenshots/SistemaStock/stock-04.jpeg",
+    "/screenshots/SistemaStock/stock-05.jpeg",
+    "/screenshots/SistemaStock/stock-06.jpeg",
+    "/screenshots/SistemaStock/stock-07.jpeg"
+  ],
+  "links": {
+    "live": "https://sistema-stock-frontend.vercel.app/",
+    "repo": "https://github.com/luchoaquinopla/sistema-stock-frontend",
+    "repoBack": "https://github.com/GMGonzaloMata/SistemaStock-Backend"
+  }
+}

@@ -1,0 +1,86 @@
+---
+// UI standalone para el Lightbox. El JS se encarga de atacharlo a cualquier .modal-img
+---
+
+<div
+  id="lightbox"
+  class="fixed inset-0 z-[500] flex items-center justify-center opacity-0 pointer-events-none transition-opacity duration-200"
+  role="dialog"
+  aria-modal="true"
+  aria-label="Imagen ampliada"
+>
+  <img id="lightbox-img" src="" alt="" class="rounded shadow-2xl" />
+  <button
+    id="lightbox-close"
+    class="absolute top-4 right-4 text-white/60 hover:text-white transition-colors p-2"
+    aria-label="Cerrar"
+  >
+    <svg class="w-7 h-7" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5">
+      <path d="M18 6L6 18M6 6l12 12"/>
+    </svg>
+  </button>
+</div>
+
+<style is:global>
+  /* Imágenes en modal clickeables (la de cualquier modal) */
+  .modal-img {
+    cursor: zoom-in;
+    transition: opacity 0.15s ease;
+  }
+  .modal-img:hover {
+    opacity: 0.85;
+  }
+  /* Lightbox contenedor */
+  #lightbox {
+    background: rgba(0,0,0,0.95);
+  }
+  #lightbox img {
+    max-width: 92vw;
+    max-height: 92vh;
+    object-fit: contain;
+    cursor: zoom-out;
+  }
+</style>
+
+<script>
+  // Script global para el lightbox
+  const lightbox = document.getElementById('lightbox')!;
+  const lightboxImg = document.getElementById('lightbox-img') as HTMLImageElement;
+
+  function openLightbox(src: string, alt: string) {
+    lightboxImg.src = src;
+    lightboxImg.alt = alt;
+    lightbox.classList.remove('opacity-0', 'pointer-events-none');
+    lightbox.classList.add('opacity-100');
+  }
+
+  function closeLightbox() {
+    lightbox.classList.add('opacity-0', 'pointer-events-none');
+    lightbox.classList.remove('opacity-100');
+    // Pequeño delay para limpiar src y evitar flash
+    setTimeout(() => { lightboxImg.src = ''; }, 200);
+  }
+
+  // Atachar a todas las imagenes apenas haya click
+  document.addEventListener('click', (e) => {
+    const target = e.target as HTMLElement;
+    if (target.classList.contains('modal-img')) {
+      const img = target as HTMLImageElement;
+      openLightbox(img.src, img.alt);
+    }
+  });
+
+  // Cerrar overlay
+  lightbox.addEventListener('click', closeLightbox);
+  document.getElementById('lightbox-close')?.addEventListener('click', (e) => {
+    e.stopPropagation();
+    closeLightbox();
+  });
+
+  // ESC cierra
+  document.addEventListener('keydown', (e) => {
+    if (e.key === 'Escape' && !lightbox.classList.contains('opacity-0')) {
+      closeLightbox();
+    }
+  });
+</script>
