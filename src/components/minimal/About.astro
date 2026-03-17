@@ -1,0 +1,102 @@
+---
+import { 
+  Code2, 
+  Cpu, 
+  Database, 
+  Globe, 
+  Layers, 
+  Layout, 
+  ChevronRight,
+  Github,
+  GitBranch,
+  Terminal,
+  FileJson
+} from '@lucide/astro';
+
+const skills = [
+  { name: 'JavaScript', icon: Code2 },
+  { name: 'TypeScript', icon: FileJson },
+  { name: 'React', icon: Layout },
+  { name: 'Next.js', icon: Layers },
+  { name: 'NestJS', icon: Cpu },
+  { name: 'PostgreSQL', icon: Database },
+  { name: 'Tailwind CSS', icon: Globe },
+  { name: 'Git', icon: GitBranch },
+  { name: 'GitHub', icon: Github },
+  { name: 'HTML/CSS', icon: Terminal }
+];
+---
+
+<script>
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach(entry => {
+      if (entry.isIntersecting) {
+        entry.target.classList.add('is-visible');
+      }
+    });
+  }, { threshold: 0.1 });
+
+  document.querySelectorAll('.animate-on-scroll').forEach(el => observer.observe(el));
+</script>
+
+<style>
+  .animate-on-scroll {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: all 0.8s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+  .is-visible {
+    opacity: 1;
+    transform: translateY(0);
+  }
+  .delay-1 { transition-delay: 0.2s; }
+  .delay-2 { transition-delay: 0.4s; }
+  .delay-3 { transition-delay: 0.6s; }
+</style>
+
+<section id="about" class="snap-section bg-[#0A0A0A] overflow-hidden flex items-center">
+  <div class="flex flex-col md:grid md:grid-cols-12 md:gap-8 w-full px-6 md:px-0">
+    
+    <!-- Título de Sección -->
+    <div class="md:col-start-2 md:col-end-4 mb-8 md:mb-0 animate-on-scroll">
+      <span class="text-[10px] font-mono text-neutral-600 uppercase tracking-[0.5em]">02 // Perfil</span>
+      <h3 class="text-3xl md:text-5xl font-bold text-white mt-2 italic">ABOUT</h3>
+    </div>
+
+    <!-- Bio Principal (Grid Roto en Desktop) -->
+    <div class="md:col-start-4 md:col-end-9 z-10">
+      <div class="max-w-2xl animate-on-scroll delay-1">
+        <p class="text-lg md:text-2xl text-white leading-relaxed font-light">
+          Soy <span class="text-neutral-400 italic font-medium">Luciano Aquino</span>, estudiante de 5to año de Ingeniería en Sistemas de Información en Corrientes, Argentina. 
+        </p>
+        <p class="text-base md:text-lg text-neutral-400 mt-6 md:mt-12 leading-relaxed font-light">
+          A mis 23 años, mi pasión por el desarrollo de software trasciende la mera escritura de código. Me enfoco en la <span class="text-white">convergencia funcional</span>: donde la robustez de una arquitectura escalable se encuentra con la elegancia de una interfaz minimalista. Mi formación académica me brinda la base técnica necesaria para afrontar desafíos complejos con una mentalidad de ingeniería.
+        </p>
+      </div>
+
+      <!-- Tech Stack Grid -->
+      <div class="mt-16 md:mt-24 animate-on-scroll delay-2">
+        <h4 class="text-[10px] uppercase tracking-[0.4em] font-bold text-neutral-500 mb-8">Tecnologías // Stack</h4>
+        <div class="grid grid-cols-2 sm:grid-cols-3 lg:grid-cols-5 gap-4">
+          {skills.map((skill) => (
+            <div class="group flex items-center gap-3 p-4 border border-white/5 hover:border-white/20 transition-all duration-500 bg-white/[0.02]">
+              <skill.icon size={18} class="text-neutral-500 group-hover:text-white transition-colors" />
+              <span class="text-[11px] uppercase tracking-widest text-neutral-400 group-hover:text-white transition-colors">
+                {skill.name}
+              </span>
+            </div>
+          ))}
+        </div>
+      </div>
+    </div>
+
+    <!-- Decoración Lateral (Solo Desktop) -->
+    <div class="hidden md:flex md:col-start-10 md:col-end-12 flex-col justify-end pb-12 opacity-10">
+      <div class="h-40 w-px bg-white mb-4"></div>
+      <span class="text-[10px] font-mono [writing-mode:vertical-lr] uppercase tracking-[1em] text-white">
+        Engineering Excellence
+      </span>
+    </div>
+
+  </div>
+</section>
