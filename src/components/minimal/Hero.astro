@@ -2,14 +2,14 @@
 import { ArrowRight } from '@lucide/astro';
 ---
 
-<section id="hero" class="snap-section bg-[#0A0A0A] overflow-hidden">
+<section id="hero" class="snap-section bg-[#0A0A0A] flex items-center">
   <div class="flex flex-col md:grid md:grid-cols-12 md:gap-6 w-full pt-28 md:pt-0">
     
     <!-- Título Principal (Nombre) -->
-    <div class="md:col-start-3 md:col-end-11 z-10">
-      <h1 class="text-6xl md:text-[11rem] tracking-[-0.07em] leading-[0.8] text-white">
+    <div class="md:col-start-2 md:col-end-12 z-10">
+      <h1 class="text-[clamp(3rem,10vw,11rem)] tracking-[-0.05em] leading-[0.8] text-white">
         <span class="italic font-bold">LUCIANO</span> <br />
-        <span class="text-neutral-300 ml-8 md:ml-32 font-light">AQUINO</span>
+        <span class="text-neutral-300 ml-[clamp(1rem,5vw,8rem)] font-light">AQUINO</span>
       </h1>
       
       <div class="mt-8 flex flex-col md:flex-row items-start md:items-baseline gap-4 md:gap-12">
@@ -24,9 +24,9 @@ import { ArrowRight } from '@lucide/astro';
     </div>
 
     <!-- Layout para Móvil / Grid Roto para Desktop -->
-    <div class="md:col-start-6 md:col-end-12 mt-16 md:mt-32">
-      <div class="max-w-lg border-l border-white/10 pl-6 md:pl-16 py-4">
-        <p class="text-base md:text-lg text-neutral-400 leading-relaxed font-light mb-12">
+    <div class="md:col-start-6 md:col-end-12 mt-12 lg:mt-32">
+      <div class="max-w-lg border-l border-white/10 pl-6 md:pl-12 py-4">
+        <p class="text-sm md:text-base lg:text-lg text-neutral-400 leading-relaxed font-light mb-8 lg:mb-12">
           Enfocado en la creación de ecosistemas digitales robustos. 
           Mi práctica profesional se basa en la convergencia entre 
           arquitectura de sistemas escalables y experiencias de usuario 
@@ -45,8 +45,8 @@ import { ArrowRight } from '@lucide/astro';
   </div>
 
   <!-- Decoración sutil -->
-  <div class="absolute top-20 right-20 w-32 h-32 border border-white/5 rounded-full hidden lg:block"></div>
-  <div class="absolute bottom-20 left-20 text-[10px] text-white/10 font-mono tracking-tighter uppercase whitespace-nowrap -rotate-90 origin-left">
+  <div class="absolute top-20 right-20 w-32 h-32 border border-white/5 rounded-full hidden xl:block"></div>
+  <div class="absolute bottom-20 left-20 text-[10px] text-white/10 font-mono tracking-tighter uppercase whitespace-nowrap -rotate-90 origin-left hidden md:block opacity-50">
     systems engineering // software architecture
   </div>
 </section>
