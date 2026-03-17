@@ -1,0 +1,24 @@
+{
+  "$schema": "https://raw.githubusercontent.com/googleapis/release-please/main/schemas/config.json",
+  "packages": {
+    ".": {
+      "release-type": "node",
+      "changelog-path": "CHANGELOG.md",
+      "bump-minor-pre-major": true,
+      "bump-patch-for-minor-pre-major": true,
+      "draft": false,
+      "prerelease": false,
+      "include-component-in-tag": false,
+      "changelog-sections": [
+        { "type": "feat", "section": "🚀 Funcionalidades", "hidden": false },
+        { "type": "fix", "section": "🐛 Correcciones", "hidden": false },
+        { "type": "chore", "section": "⚙️ Tareas técnicas", "hidden": false },
+        { "type": "docs", "section": "📝 Documentación", "hidden": false },
+        { "type": "style", "section": "💅 Estética y Limpieza", "hidden": false },
+        { "type": "refactor", "section": "♻️ Refactorización", "hidden": false },
+        { "type": "perf", "section": "⚡ Rendimiento", "hidden": false },
+        { "type": "test", "section": "✅ Pruebas", "hidden": false }
+      ]
+    }
+  }
+}
