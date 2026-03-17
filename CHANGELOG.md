@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.1.1](https://github.com/luchoaquinopla/Portfolio/compare/v1.1.0...v1.1.1) (2026-03-17)
+
+
+### ♻️ Refactorización
+
+* aplicar SRP y DRY usando Astro Content Collections ([95348e5](https://github.com/luchoaquinopla/Portfolio/commit/95348e5053a672364c0d8dd7932c72043947c452))
+* aplicar SRP y DRY usando Astro Content Collections ([e1bfedd](https://github.com/luchoaquinopla/Portfolio/commit/e1bfeddabbaaae225502759e596a4b821fe9cea4))
+
 ## [1.1.0](https://github.com/luchoaquinopla/Portfolio/compare/v1.0.0...v1.1.0) (2026-03-17)
 
 
