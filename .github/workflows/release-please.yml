@@ -1,0 +1,20 @@
+name: release-please
+
+on:
+  push:
+    branches:
+      - main
+
+permissions:
+  contents: write
+  pull-requests: write
+
+jobs:
+  release-please:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: googleapis/release-please-action@v4
+        with:
+          # Esto va a crear un PR de release automáticamente con el changelog
+          # Cuando mergees ese PR, se creará el Tag y el GitHub Release.
+          release-type: node
