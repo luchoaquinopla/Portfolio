@@ -97,9 +97,9 @@ const navItems = [
   const overlay = document.getElementById('page-transition');
 
   // --- Scroll Spy via IntersectionObserver ---
-  function setActive(sectionId: string) {
+  function setActive(sectionId) {
     document.querySelectorAll('[data-nav-link]').forEach((link) => {
-      const el = link as HTMLElement;
+      const el = link;
       if (el.dataset.section === sectionId) {
         el.classList.add('is-active');
       } else {
@@ -128,7 +128,7 @@ const navItems = [
   document.querySelectorAll('[data-nav-link]').forEach((link) => {
     link.addEventListener('click', (e) => {
       e.preventDefault();
-      const href = (link as HTMLAnchorElement).getAttribute('href') || '';
+      const href = link.getAttribute('href') || '';
       const target = document.querySelector(href);
       if (!target || !overlay) return;
 
