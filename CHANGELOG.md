@@ -1,5 +1,12 @@
 # Changelog
 
+## [1.3.0](https://github.com/luchoaquinopla/Portfolio/compare/v1.2.0...v1.3.0) (2026-03-18)
+
+
+### 🚀 Funcionalidades
+
+* move social links to about section ([5c4b5a0](https://github.com/luchoaquinopla/Portfolio/commit/5c4b5a0a4792ade15f60d9f329820ce0c74b93c8))
+
 ## [1.2.0](https://github.com/luchoaquinopla/Portfolio/compare/v1.1.1...v1.2.0) (2026-03-18)
 
 
