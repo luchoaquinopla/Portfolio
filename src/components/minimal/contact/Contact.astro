@@ -1,0 +1,102 @@
+---
+---
+<section id="contact" class="snap-section bg-[#0A0A0A] w-full py-32 md:py-48 overflow-hidden relative border-t border-white/5">
+  <div class="px-6 md:px-12 w-full max-w-[1400px] mx-auto relative z-10">
+    
+    <div class="md:grid md:grid-cols-12 md:gap-8">
+      
+      <!-- Huge Typographic Header -->
+      <div class="md:col-start-2 md:col-end-7 mb-16 md:mb-0">
+        <span class="text-[10px] font-mono text-neutral-600 uppercase tracking-[0.5em] block mb-6">05 // Conexión</span>
+        <h2 class="text-[12vw] md:text-[6vw] leading-[0.9] font-black tracking-tighter text-white uppercase group">
+          Contact<span class="text-white/20 italic font-serif tracking-normal transition-colors duration-700 group-hover:text-white">o.</span>
+        </h2>
+        
+      </div>
+
+      <div class="md:col-start-8 md:col-end-12">
+        <form 
+          action="https://formspree.io/f/mdawywnk" 
+          method="POST" 
+          class="flex flex-col gap-12"
+        >
+          <!-- Name Field -->
+          <div class="relative group">
+            <input 
+              type="text" 
+              name="name" 
+              id="name" 
+              required
+              class="w-full bg-transparent border-b border-white/20 pb-4 text-2xl md:text-4xl text-white font-light focus:outline-none focus:border-white transition-colors duration-500 placeholder-transparent peer"
+              placeholder="Tu Nombre"
+            />
+            <label 
+              for="name" 
+              class="absolute left-0 top-0 text-white/30 text-2xl md:text-4xl font-light pointer-events-none transition-all duration-500 peer-focus:-translate-y-8 peer-focus:text-sm peer-focus:font-mono peer-focus:uppercase peer-focus:tracking-[0.2em] peer-valid:-translate-y-8 peer-valid:text-sm peer-valid:font-mono peer-valid:uppercase peer-valid:tracking-[0.2em]"
+            >
+              Nombre
+            </label>
+          </div>
+
+          <!-- Email Field -->
+          <div class="relative group">
+            <input 
+              type="email" 
+              name="email" 
+              id="email" 
+              required
+              class="w-full bg-transparent border-b border-white/20 pb-4 text-2xl md:text-4xl text-white font-light focus:outline-none focus:border-white transition-colors duration-500 placeholder-transparent peer"
+              placeholder="Email"
+            />
+            <label 
+              for="email" 
+              class="absolute left-0 top-0 text-white/30 text-2xl md:text-4xl font-light pointer-events-none transition-all duration-500 peer-focus:-translate-y-8 peer-focus:text-sm peer-focus:font-mono peer-focus:uppercase peer-focus:tracking-[0.2em] peer-valid:-translate-y-8 peer-valid:text-sm peer-valid:font-mono peer-valid:uppercase peer-valid:tracking-[0.2em]"
+            >
+              Email
+            </label>
+          </div>
+
+          <!-- Message Field -->
+          <div class="relative group mt-4">
+            <textarea 
+              name="message" 
+              id="message" 
+              rows="3"
+              required
+              class="w-full bg-transparent border-b border-white/20 pb-4 text-2xl md:text-4xl text-white font-light focus:outline-none focus:border-white transition-colors duration-500 placeholder-transparent peer resize-none"
+              placeholder="Mensaje"
+            ></textarea>
+            <label 
+              for="message" 
+              class="absolute left-0 top-0 text-white/30 text-2xl md:text-4xl font-light pointer-events-none transition-all duration-500 peer-focus:-translate-y-8 peer-focus:text-sm peer-focus:font-mono peer-focus:uppercase peer-focus:tracking-[0.2em] peer-valid:-translate-y-8 peer-valid:text-sm peer-valid:font-mono peer-valid:uppercase peer-valid:tracking-[0.2em]"
+            >
+              Mensaje
+            </label>
+          </div>
+
+          <!-- Hidden Next (Formspree success redirect) -->
+          <!-- <input type="hidden" name="_next" value="https://tudominio.com/thanks"> -->
+
+          <!-- Submit Button -->
+          <button 
+            type="submit" 
+            class="group relative flex items-center justify-between mt-8 p-6 md:p-8 bg-white/5 border border-white/10 hover:border-white/40 hover:bg-white transition-all duration-700 w-full overflow-hidden"
+          >
+            <span class="relative z-10 text-white group-hover:text-black font-mono text-sm uppercase tracking-[0.3em] transition-colors duration-500">
+              Transmitir Señal
+            </span>
+            <span class="relative z-10 w-10 h-10 flex text-white group-hover:text-black items-center justify-center -rotate-45 group-hover:rotate-0 transition-transform duration-700">
+              <svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"><path d="M5 12h14"></path><path d="m12 5 7 7-7 7"></path></svg>
+            </span>
+            <!-- Solid hover fill element -->
+            <div class="absolute inset-0 bg-white scale-x-0 group-hover:scale-x-100 origin-left transition-transform duration-700 ease-[cubic-bezier(0.19,1,0.22,1)]"></div>
+          </button>
+        </form>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- Ambient Light -->
+  <div class="absolute -bottom-1/2 left-0 w-[800px] h-[800px] bg-white/5 rounded-full blur-[150px] pointer-events-none"></div>
+</section>
