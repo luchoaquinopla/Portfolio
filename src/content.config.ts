@@ -28,7 +28,19 @@ const skillsCollection = defineCollection({
   }),
 });
 
+const certificadosCollection = defineCollection({
+  loader: glob({ pattern: "**/*.json", base: "./src/content/certificados" }),
+  schema: z.object({
+    name: z.string(),
+    issuer: z.string(),
+    status: z.enum(['completado', 'en-progreso']),
+    fileUrl: z.string(),
+    date: z.string().optional(),
+  }),
+});
+
 export const collections = {
   projects: projectsCollection,
   skills: skillsCollection,
+  certificados: certificadosCollection,
 };
