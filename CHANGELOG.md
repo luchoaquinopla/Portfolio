@@ -1,5 +1,13 @@
 # Changelog
 
+## [1.2.0](https://github.com/luchoaquinopla/Portfolio/compare/v1.1.1...v1.2.0) (2026-03-18)
+
+
+### 🚀 Funcionalidades
+
+* implement certificados section via Astro content collections ([149f767](https://github.com/luchoaquinopla/Portfolio/commit/149f767b9d827b026d2cd06d077bc482a5ab2ea7))
+* implement certificados section via Astro content collections ([fbb538e](https://github.com/luchoaquinopla/Portfolio/commit/fbb538ef4e07b12cfe4a065a22060b9d12369562))
+
 ## [1.1.1](https://github.com/luchoaquinopla/Portfolio/compare/v1.1.0...v1.1.1) (2026-03-17)
 
 
