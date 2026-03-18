@@ -65,7 +65,9 @@ const skills = allSkills
     <!-- Título de Sección -->
     <div class="md:col-start-2 md:col-end-4 mb-8 md:mb-0 animate-on-scroll">
       <span class="text-[10px] font-mono text-neutral-600 uppercase tracking-[0.5em]">02 // Perfil</span>
-      <h3 class="text-3xl md:text-5xl font-bold text-white mt-2 italic">ABOUT</h3>
+      <h2 class="text-3xl md:text-5xl font-light text-white tracking-tighter mt-4 ml-[-2px]">
+        Sobre mí<span class="text-neutral-600">.</span>
+      </h2>
     </div>
 
     <!-- Bio Principal (Grid Roto en Desktop) -->
@@ -74,12 +76,28 @@ const skills = allSkills
         <p class="text-base md:text-xl text-neutral-300 leading-relaxed font-light">
           A mis 23 años, lo que más disfruto es el proceso de crear software. Me apasiona diseñar soluciones que sean técnicamente sólidas y, a la vez, simples para el usuario. Me gusta enfrentar desafíos que me obliguen a pensar de forma analítica y usar mi formación académica para construir herramientas de calidad.
         </p>
+
+        <!-- Social Action Links -->
+        <div class="mt-10 flex flex-col lg:flex-row flex-wrap gap-4">
+          <a href="https://github.com/luchoaquinopla" target="_blank" rel="noopener noreferrer" class="text-[10px] uppercase tracking-[0.3em] font-mono text-neutral-400 hover:text-white transition-colors duration-300 border border-white/10 hover:border-white/40 px-6 py-4 flex items-center justify-center gap-3 whitespace-nowrap bg-white/[0.02]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M15 22v-4a4.8 4.8 0 0 0-1-3.02c3.14-.35 6.44-1.54 6.44-7A5.44 5.44 0 0 0 20 4.77 5.07 5.07 0 0 0 19.91 1S18.73.65 16 2.48a13.38 13.38 0 0 0-7 0C6.27.65 5.09 1 5.09 1A5.07 5.07 0 0 0 5 4.77a5.44 5.44 0 0 0-1.5 3.78c0 5.42 3.3 6.61 6.44 7A4.8 4.8 0 0 0 8 18v4"></path><path d="M12 18v4"></path><path d="M12 14h.01"></path></svg>
+            GitHub
+          </a>
+          <a href="https://www.linkedin.com/in/luciano-aquino-?utm_source=share_via&utm_content=profile&utm_medium=member_ios" target="_blank" rel="noopener noreferrer" class="text-[10px] uppercase tracking-[0.3em] font-mono text-neutral-400 hover:text-white transition-colors duration-300 border border-white/10 hover:border-white/40 px-6 py-4 flex items-center justify-center gap-3 whitespace-nowrap bg-white/[0.02]">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M16 8a6 6 0 0 1 6 6v7h-4v-7a2 2 0 0 0-2-2 2 2 0 0 0-2 2v7h-4v-7a6 6 0 0 1 6-6z"></path><rect width="4" height="12" x="2" y="9"></rect><circle cx="4" cy="4" r="2"></circle></svg>
+            LinkedIn
+          </a>
+          <a href="/cv.pdf" target="_blank" rel="noopener noreferrer" class="text-[10px] uppercase tracking-[0.3em] font-mono text-black bg-white hover:bg-neutral-200 transition-colors duration-300 px-6 py-4 flex items-center justify-center gap-3 whitespace-nowrap font-bold">
+            <svg xmlns="http://www.w3.org/2000/svg" width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V8z"></path><polyline points="14 2 14 8 20 8"></polyline><line x1="12" y1="18" x2="12" y2="12"></line><line x1="9" y1="15" x2="15" y2="15"></line></svg>
+            Descargar CV
+          </a>
+        </div>
       </div>
 
       <!-- Tech Stack Grid -->
       <div class="mt-16 md:mt-24 animate-on-scroll delay-2">
         <h4 class="text-[10px] uppercase tracking-[0.4em] font-bold text-neutral-500 mb-8 text-center md:text-left">Tecnologías // Stack</h4>
-        <div class="grid grid-cols-[repeat(auto-fit,minmax(130px,1fr))] gap-3">
+        <div class="grid grid-cols-2 md:grid-cols-[repeat(auto-fit,minmax(130px,1fr))] gap-3">
           {skills.map((skill) => (
             <div 
               class="skill-card group relative flex items-center justify-center p-3 sm:p-4 border border-white/5 bg-white/[0.02] transition-all duration-500 overflow-hidden"
