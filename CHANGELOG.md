@@ -1,5 +1,15 @@
 # Changelog
 
+## [1.2.0](https://github.com/luchoaquinopla/Portfolio/compare/v1.1.1...v1.2.0) (2026-03-18)
+
+
+### 🚀 Funcionalidades
+
+* implement certificados section via Astro content collections ([149f767](https://github.com/luchoaquinopla/Portfolio/commit/149f767b9d827b026d2cd06d077bc482a5ab2ea7))
+* implement certificados section via Astro content collections ([fbb538e](https://github.com/luchoaquinopla/Portfolio/commit/fbb538ef4e07b12cfe4a065a22060b9d12369562))
+* integrate formspree endpoint in contact form and refine UI ([e85c2e9](https://github.com/luchoaquinopla/Portfolio/commit/e85c2e986f62eabef5b4b159f9d8a32127a15db0))
+* integrate formspree endpoint in contact form and refine UI ([79dc86a](https://github.com/luchoaquinopla/Portfolio/commit/79dc86a673b044a22db0947ced3257fb4f0fd550))
+
 ## [1.1.1](https://github.com/luchoaquinopla/Portfolio/compare/v1.1.0...v1.1.1) (2026-03-17)
 
 
