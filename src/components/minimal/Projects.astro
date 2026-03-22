@@ -1,5 +1,7 @@
 ---
 import { getCollection } from 'astro:content';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 import ProjectCard from './projects/ProjectCard.astro';
 import ScreenshotsModal from './projects/ScreenshotsModal.astro';
 import Lightbox from './projects/Lightbox.astro';
@@ -85,14 +87,14 @@ const signoProject = projects.find(p => p.id === 'signo-kids');
     subtitle="Sistema privado — Capturas"
     accent="amber"
     images={[
-      { file: stockProject.data.screenshots[0], label: 'Dashboard' },
-      { file: stockProject.data.screenshots[1], label: 'Productos' },
-      { file: stockProject.data.screenshots[2], label: 'Agregar producto' },
-      { file: stockProject.data.screenshots[3], label: 'Movimientos' },
-      { file: stockProject.data.screenshots[4], label: 'Tipo de movimiento' },
-      { file: stockProject.data.screenshots[5], label: 'Reportes' },
-      { file: stockProject.data.screenshots[6], label: 'Configuración' },
-      { file: stockProject.data.screenshots[7], label: 'Login' }
+      { file: `${base}${stockProject.data.screenshots[0]}`, label: 'Dashboard' },
+      { file: `${base}${stockProject.data.screenshots[1]}`, label: 'Productos' },
+      { file: `${base}${stockProject.data.screenshots[2]}`, label: 'Agregar producto' },
+      { file: `${base}${stockProject.data.screenshots[3]}`, label: 'Movimientos' },
+      { file: `${base}${stockProject.data.screenshots[4]}`, label: 'Tipo de movimiento' },
+      { file: `${base}${stockProject.data.screenshots[5]}`, label: 'Reportes' },
+      { file: `${base}${stockProject.data.screenshots[6]}`, label: 'Configuración' },
+      { file: `${base}${stockProject.data.screenshots[7]}`, label: 'Login' }
     ]}
     description="Sistema en producción para uso interno del cliente. El acceso requiere credenciales. Las capturas muestran las vistas principales implementadas."
   />
@@ -105,13 +107,13 @@ const signoProject = projects.find(p => p.id === 'signo-kids');
     subtitle="App Mobile — Capturas"
     accent="blue"
     images={[
-      { file: signoProject.data.screenshots[0], label: 'Selección de perfil' },
-      { file: signoProject.data.screenshots[1], label: 'Carga de App' },
-      { file: signoProject.data.screenshots[2], label: 'Login Médico' },
-      { file: signoProject.data.screenshots[3], label: 'Menu interactivo' },
-      { file: signoProject.data.screenshots[4], label: 'Vista de contenido' },
-      { file: signoProject.data.screenshots[5], label: 'Registro Médico' },
-      { file: signoProject.data.screenshots[6], label: 'Progreso de niño' }
+      { file: `${base}${signoProject.data.screenshots[0]}`, label: 'Selección de perfil' },
+      { file: `${base}${signoProject.data.screenshots[1]}`, label: 'Carga de App' },
+      { file: `${base}${signoProject.data.screenshots[2]}`, label: 'Login Médico' },
+      { file: `${base}${signoProject.data.screenshots[3]}`, label: 'Menu interactivo' },
+      { file: `${base}${signoProject.data.screenshots[4]}`, label: 'Vista de contenido' },
+      { file: `${base}${signoProject.data.screenshots[5]}`, label: 'Registro Médico' },
+      { file: `${base}${signoProject.data.screenshots[6]}`, label: 'Progreso de niño' }
     ]}
     description="Aplicación mobile educativa desarrollada para un entorno académico. Las capturas ilustran el flujo del niño aprendiendo y la panel del profesional."
   />

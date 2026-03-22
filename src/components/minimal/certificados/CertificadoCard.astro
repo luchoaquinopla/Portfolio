@@ -9,13 +9,15 @@ interface Props {
 const { certificado, index } = Astro.props;
 const { name, issuer, status, fileUrl, date } = certificado.data;
 
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
+
 const isCompleted = status === 'completado';
 const numberString = (index + 1).toString().padStart(2, '0');
 
 // Dynamic component wrapper based on status
 const Element = isCompleted ? 'a' : 'div';
 const htmlProps = isCompleted ? {
-  href: fileUrl,
+  href: `${base}${fileUrl}`,
   target: "_blank",
   rel: "noopener noreferrer"
 } : {};
