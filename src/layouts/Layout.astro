@@ -18,10 +18,37 @@ const { title } = Astro.props;
 		<meta name="generator" content={Astro.generator} />
 		<title>{title}</title>
 	</head>
-	<body class="antialiased">
+	<body class="antialiased bg-[#0A0A0A] relative">
+		<!-- Texto de ruido SVG -->
+		<div class="pointer-events-none fixed inset-0 z-50 h-full w-full opacity-[0.03] mix-blend-overlay" style="background-image: url(&quot;data:image/svg+xml,%3Csvg viewBox='0 0 200 200' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noiseFilter'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noiseFilter)'/%3E%3C/svg%3E&quot;);"></div>
+		
+		<!-- Barra de progreso de lectura (scroll) -->
+		<div class="fixed top-0 left-0 h-1 md:h-[2px] bg-white/20 z-[100] w-full origin-left transform scale-x-0 transition-transform duration-100 ease-out" id="scroll-progress"></div>
+
 		<Sidebar />
-		<main class="pl-0 md:pl-24 h-screen snap-container box-border">
+		<main id="main-scroll" class="pl-0 md:pl-24 h-screen snap-container box-border">
 			<slot />
 		</main>
+
+		<script>
+			const mainScroll = document.getElementById('main-scroll');
+			const progressBar = document.getElementById('scroll-progress');
+
+			if (mainScroll && progressBar) {
+				mainScroll.addEventListener('scroll', () => {
+					// Calcula el progreso en base a cuánto bajó el contenedor
+					const scrollTop = mainScroll.scrollTop;
+					const scrollHeight = mainScroll.scrollHeight;
+					const clientHeight = mainScroll.clientHeight;
+					
+					// Previene divisiones por cero si no hay scroll
+					const scrolled = scrollHeight - clientHeight > 0 
+						? (scrollTop / (scrollHeight - clientHeight)) * 100 
+						: 0;
+						
+					progressBar.style.transform = `scaleX(${scrolled / 100})`;
+				});
+			}
+		</script>
 	</body>
 </html>

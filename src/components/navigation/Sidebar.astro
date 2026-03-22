@@ -1,12 +1,13 @@
 ---
-import { Home, User, FolderCode, GraduationCap, Mail } from '@lucide/astro';
+import { Home, User, FolderCode, Library, GraduationCap, Mail } from '@lucide/astro';
 
 const navItems = [
   { href: '#hero', icon: Home, label: 'Inicio', code: '01' },
   { href: '#about', icon: User, label: 'Perfil', code: '02' },
-  { href: '#projects', icon: FolderCode, label: 'Proyectos', code: '03' },
-  { href: '#courses', icon: GraduationCap, label: 'Formación', code: '04' },
-  { href: '#contact', icon: Mail, label: 'Contacto', code: '05' },
+  { href: '#academic', icon: Library, label: 'Universidad', code: '03' },
+  { href: '#projects', icon: FolderCode, label: 'Proyectos', code: '04' },
+  { href: '#courses', icon: GraduationCap, label: 'Formación', code: '05' },
+  { href: '#contact', icon: Mail, label: 'Contacto', code: '06' },
 ];
 ---
 
@@ -93,7 +94,7 @@ const navItems = [
 </style>
 
 <script>
-  const sections = ['hero', 'about', 'projects', 'courses', 'contact'];
+  const sections = ['hero', 'about', 'academic', 'projects', 'courses', 'contact'];
   const overlay = document.getElementById('page-transition');
 
   // --- Scroll Spy via IntersectionObserver ---

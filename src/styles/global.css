@@ -15,7 +15,7 @@
 
 @layer base {
   html, body {
-    @apply h-full overflow-hidden bg-[#0A0A0A] text-[#F5F5F5];
+    @apply bg-[#0A0A0A] text-[#F5F5F5];
     font-family: var(--font-body);
     scroll-behavior: smooth;
     
@@ -37,11 +37,11 @@
 
 @layer utilities {
   .snap-container {
-    @apply h-screen overflow-y-scroll snap-y snap-mandatory;
+    @apply overflow-y-auto;
   }
 
   .snap-section {
-    @apply min-h-[100svh] snap-start relative flex items-center px-8 md:px-24 py-20 md:py-0;
+    @apply min-h-[100svh] relative flex items-center px-8 md:px-24 py-20 md:py-0;
   }
 
   .broken-grid {

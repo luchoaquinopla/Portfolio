@@ -2,44 +2,102 @@
 import { ArrowRight } from '@lucide/astro';
 ---
 
+<style>
+  /* Clases para animación de entrada en el Hero */
+  .reveal-wrapper {
+    overflow: hidden;
+    display: inline-block;
+    padding-right: 0.15em;
+    padding-bottom: 0.15em;
+    margin-bottom: -0.15em;
+    margin-right: -0.15em;
+  }
+  
+  .reveal-text {
+    display: inline-block;
+    transform: translateY(110%);
+    opacity: 0;
+    transition: transform 1s cubic-bezier(0.16, 1, 0.3, 1), opacity 0.5s ease-out;
+  }
+  
+  .fade-in-text {
+    opacity: 0;
+    transform: translateY(20px);
+    transition: opacity 1s ease-out, transform 1s cubic-bezier(0.16, 1, 0.3, 1);
+  }
+
+  .is-loaded .reveal-text {
+    transform: translateY(0);
+    opacity: 1;
+  }
+  
+  .is-loaded .fade-in-text {
+    opacity: 1;
+    transform: translateY(0);
+  }
+
+  /* Delays */
+  .delay-100 { transition-delay: 100ms; }
+  .delay-200 { transition-delay: 200ms; }
+  .delay-300 { transition-delay: 300ms; }
+  .delay-400 { transition-delay: 400ms; }
+  .delay-500 { transition-delay: 500ms; }
+  .delay-600 { transition-delay: 600ms; }
+</style>
+
+<script>
+  // Disparar las animaciones cuando el DOM esté listo
+  document.addEventListener('DOMContentLoaded', () => {
+    setTimeout(() => {
+      document.getElementById('hero')?.classList.add('is-loaded');
+    }, 100);
+  });
+</script>
+
 <section id="hero" class="snap-section bg-[#0A0A0A] flex items-center">
   <div class="flex flex-col md:grid md:grid-cols-12 md:gap-6 w-full pt-28 md:pt-0">
     
     <!-- Título Principal (Nombre) -->
     <div class="md:col-start-2 md:col-end-12 z-10">
-      <h1 class="text-[clamp(3rem,10vw,11rem)] tracking-[-0.05em] leading-[0.8] text-white">
-        <span class="italic font-bold">LUCIANO</span> <br />
-        <span class="text-neutral-300 ml-[clamp(1rem,5vw,8rem)] font-light">AQUINO</span>
+      <h1 class="text-[clamp(3rem,10vw,11rem)] tracking-[-0.05em] leading-[0.8] text-white flex flex-col items-start gap-2 md:block md:gap-0">
+        <span class="reveal-wrapper">
+          <span class="reveal-text delay-100 italic font-bold">LUCIANO</span>
+        </span>
+        <br class="hidden md:block" />
+        <span class="reveal-wrapper ml-0 md:ml-[clamp(1rem,5vw,8rem)]">
+          <span class="reveal-text delay-200 text-neutral-300 font-light">AQUINO</span>
+        </span>
       </h1>
       
       <div class="mt-8 flex flex-col md:flex-row items-start md:items-baseline gap-4 md:gap-12">
-        <h2 class="text-xl md:text-2xl uppercase tracking-[0.2em] font-light text-neutral-400">
-          Desarrollador Full-stack
-        </h2>
-        <div class="h-px w-12 bg-neutral-800 hidden md:block"></div>
-        <h2 class="text-lg md:text-xl font-light text-neutral-500 italic">
-          Estudiante de Ingeniería en Sistemas
-        </h2>
+        <span class="reveal-wrapper">
+          <h2 class="reveal-text delay-300 text-xl md:text-2xl uppercase tracking-[0.2em] font-light text-neutral-400">
+            Desarrollador Full-stack
+          </h2>
+        </span>
+        <div class="h-px w-12 bg-neutral-800 hidden md:block fade-in-text delay-400"></div>
+        <span class="reveal-wrapper">
+          <h2 class="reveal-text delay-400 text-lg md:text-xl font-light text-neutral-500 italic">
+            Estudiante de Ingeniería en Sistemas
+          </h2>
+        </span>
       </div>
     </div>
 
     <!-- Layout para Móvil / Grid Roto para Desktop -->
     <div class="md:col-start-6 md:col-end-12 mt-12 lg:mt-32">
       <div class="max-w-lg border-l border-white/10 pl-6 md:pl-12 py-4">
-        <p class="text-sm md:text-base lg:text-lg text-neutral-400 leading-relaxed font-light mb-8 lg:mb-12">
-          Enfocado en la creación de ecosistemas digitales robustos. 
-          Mi práctica profesional se basa en la convergencia entre 
-          arquitectura de sistemas escalables y experiencias de usuario 
-          minimalistas y funcionales.
-        </p>
         
-        <a 
-          href="#projects" 
-          class="inline-flex items-center gap-8 group text-[11px] uppercase tracking-[0.5em] font-bold text-white hover:text-neutral-400 transition-all font-display"
-        >
-          Visualizar Proyectos
-          <ArrowRight class="w-4 h-4 group-hover:translate-x-3 transition-transform duration-500" />
-        </a>
+        
+        <div class="fade-in-text delay-600">
+          <a 
+            href="#projects" 
+            class="inline-flex items-center gap-8 group text-[11px] uppercase tracking-[0.5em] font-bold text-white hover:text-neutral-400 transition-all font-display"
+          >
+            Visualizar Proyectos
+            <ArrowRight class="w-4 h-4 group-hover:translate-x-3 transition-transform duration-500" />
+          </a>
+        </div>
       </div>
     </div>
   </div>
