@@ -1,10 +1,10 @@
 ---
 import { getCollection } from 'astro:content';
-
-const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 import ProjectCard from './projects/ProjectCard.astro';
 import ScreenshotsModal from './projects/ScreenshotsModal.astro';
 import Lightbox from './projects/Lightbox.astro';
+
+const base = import.meta.env.BASE_URL.replace(/\/$/, '');
 
 // Obtener proyectos y ordenarlos alfabéticamente por 'id' que en las colecciones es .id 
 // (Aunque .id es el nombre del archivo, para mantener el orden de 01, 02, 03 podemos mapearlos temporalmente)
