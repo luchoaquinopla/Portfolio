@@ -1,5 +1,28 @@
 # Changelog
 
+## [1.4.0](https://github.com/luchoaquinopla/Portfolio/compare/v1.3.0...v1.4.0) (2026-03-22)
+
+
+### 🚀 Funcionalidades
+
+* enhance UI with noise texture, scroll progress, responsive academic stats, and synchronized navbar ([b9dde84](https://github.com/luchoaquinopla/Portfolio/commit/b9dde84b3b0de0075ed56154c8d29a5859b116be))
+
+
+### 🐛 Correcciones
+
+* bump node version to 22 in github actions for astro compatibility ([6d19982](https://github.com/luchoaquinopla/Portfolio/commit/6d199823189f111960107822a73c87b5d1a949cf))
+* move const base after imports to fix esbuild parse error ([9544ded](https://github.com/luchoaquinopla/Portfolio/commit/9544dedfd023ff5beab089d417548a50d0623d5c))
+* prefix asset paths with BASE_URL for GitHub Pages ([26bbd42](https://github.com/luchoaquinopla/Portfolio/commit/26bbd42ae5c372295bb0689780f11147fab9d758))
+* rename cv to avoid 404 with special characters on github pages ([8912e30](https://github.com/luchoaquinopla/Portfolio/commit/8912e30becba4ecd833e26cd40fc6b47a5f5d3da))
+* resolve vite compilation error in sidebar script ([57f3c80](https://github.com/luchoaquinopla/Portfolio/commit/57f3c80fa83fd496fb277e7a2121d3d980f3fa68))
+* restore strict semantic TS types in Sidebar to pass astro check ([54c6343](https://github.com/luchoaquinopla/Portfolio/commit/54c6343e5f036daa1a797ea55d855b476ef46bb9))
+
+
+### ⚙️ Tareas técnicas
+
+* add .npmrc to bypass peer dependency errors in CI ([8b5dbb3](https://github.com/luchoaquinopla/Portfolio/commit/8b5dbb3232533df29e6f85f9594915c858f56ff8))
+* setup github actions CI for gh-pages deployment ([7299bd9](https://github.com/luchoaquinopla/Portfolio/commit/7299bd9082e5e63e7aa54a10381beabb4955c01a))
+
 ## [1.3.0](https://github.com/luchoaquinopla/Portfolio/compare/v1.2.0...v1.3.0) (2026-03-18)
 
 
